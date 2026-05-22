@@ -166,18 +166,52 @@ h3 {
     );
 } /* Aki - Rich Maple Red */
 
-/* --- KINTSUGI CARD STYLING --- */
+/* --- KINTSUGI CARD STYLING (Upgraded to CSS Grid) --- */
 .kintsugi-card {
-    width: 80%;
-    max-width: 1000px;
-    background: rgba(244, 241, 234, 0.03);
-    padding: 40px;
-    border-radius: 2px;
+    width: 90%; /* Widened slightly to accommodate the two columns comfortably */
+    max-width: 1100px;
+    padding: 50px;
+    border-radius: 4px;
     position: relative;
-    /* Base subtle border */
     border: 1px solid rgba(244, 241, 234, 0.1);
+    background-color: rgba(244, 241, 234, 0.04);
+
+    /* The core Grid layout */
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 40px;
+    align-items: center; /* Keeps the text vertically centered with your photo */
 }
 
+/* --- STAMP OVERLAP FIX --- */
+.card-right {
+    /* Increased heavily from 60px to 110px to clear the absolute-positioned stamp */
+    padding-right: 110px;
+    padding-top: 10px; /* Slight buffer at the top */
+}
+
+/* --- THE TEXT CONTENT STYLING --- */
+.question-heading {
+    font-family: "Shippori Mincho", serif;
+    color: var(--kintsugi-gold);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 35px;
+    line-height: 1.4;
+    opacity: 0.95;
+}
+
+/* Removes the top margin from the very first question so it aligns with the top of the left column */
+.question-heading:first-child {
+    margin-top: 0;
+}
+
+.answer-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.85;
+}
 /* Creating the Kintsugi "fracture" lines using pseudo-elements */
 .kintsugi-card::before,
 .kintsugi-card::after {
@@ -239,13 +273,6 @@ h3 {
     font-size: 3.5rem;
     margin-bottom: 15px;
     font-weight: 400;
-}
-
-.placeholder-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 600px;
-    opacity: 0.85;
 }
 
 /* --- SECTION 3: PITCH / CONCLUSION --- */
@@ -314,13 +341,13 @@ h3 {
 .profile-pic {
     width: 110px;
     height: 110px;
-    border-radius: 50%; /* Forces the perfect circle */
-    object-fit: cover; /* Ensures the image fills the circle without squishing */
+    border-radius: 50%;
+    object-fit: cover;
     border: 2px solid var(--kintsugi-gold);
-    margin-bottom: 25px;
+    margin-top: 15px; /* Adds breathing room between the badge and picture */
+    margin-bottom: 15px; /* Tightened from 25px */
     display: block;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    /* Subtle hover interaction */
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -334,4 +361,81 @@ h3 {
 /* Adjusting the h2 so it flows nicely below the new image */
 .kintsugi-card h2 {
     margin-top: 0;
+}
+
+/* --- ALIGNMENT & NAME SIZING FIXES --- */
+.card-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the picture, badge, and text vertically */
+    text-align: center; /* Ensures multi-line names stay centered */
+}
+
+.kintsugi-card h2 {
+    font-size: 2.6rem; /* Scaled down so it fits the column cleanly */
+    line-height: 1.1;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+/* Ensure the season label looks balanced when centered */
+.season-label {
+    margin-bottom: 10px;
+}
+
+/* --- BULLETED LIST STYLING --- */
+.skill-list {
+    list-style: none; /* Removes default boring bullets */
+    padding: 0;
+    margin-top: 20px;
+}
+
+.skill-list li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.9;
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Custom Kintsugi-gold bullet points */
+.skill-list li::before {
+    content: "✦"; /* An elegant 4-point star */
+    position: absolute;
+    left: 0;
+    color: var(--kintsugi-gold);
+    font-size: 0.9rem;
+    top: 2px;
+}
+
+.skill-list strong {
+    color: var(--kintsugi-gold);
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    display: block; /* Puts the bold title on its own line */
+    margin-bottom: 5px;
+}
+
+/* --- LINKEDIN BUTTON STYLING --- */
+.linkedin-link {
+    margin-top: 15px;
+    display: inline-block;
+    color: var(--washi-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--kintsugi-gold);
+    padding-bottom: 2px;
+    opacity: 0.8;
+    transition:
+        opacity 0.3s ease,
+        color 0.3s ease;
+}
+
+.linkedin-link:hover {
+    opacity: 1;
+    color: var(--kintsugi-gold);
 }
