@@ -32,7 +32,7 @@ introTl
         duration: 1,
     });
 
-// --- 2. TEAM SECTION ANIMATION (Keep exactly as before) ---
+//--- 2. TEAM SECTION ANIMATION ---
 gsap.to(".panel-track", {
     xPercent: -75,
     ease: "none",
