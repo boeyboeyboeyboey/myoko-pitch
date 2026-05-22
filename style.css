@@ -478,47 +478,63 @@ h3 {
    ========================================= */
 
 @media screen and (max-width: 900px) {
-    /* 1. Stack the grid from 2 columns to 1 vertical column */
+    /* 1. Kill the horizontal track constraints */
+    .horizontal-section {
+        height: auto;
+    }
+
+    .panel-track {
+        display: block; /* Stops the horizontal flexbox */
+        width: 100vw;
+        height: auto;
+    }
+
+    .panel {
+        width: 100vw;
+        height: auto;
+        min-height: 100vh; /* Lets each card take up at least one full screen */
+        padding: 40px 5%;
+    }
+
+    /* 2. Un-restrict the card so there is NO internal scrolling */
     .kintsugi-card {
-        grid-template-columns: 1fr; /* 1 fraction of the space (full width) */
-        width: 95%; /* Takes up more of the narrow mobile screen */
-        padding: 35px 25px; /* Shrinks the huge desktop padding */
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 30px 20px; /* Tighter padding to maximize screen width */
         gap: 20px;
-
-        /* If a phone screen is super short, this allows scrolling INSIDE the card */
-        max-height: 85vh;
-        overflow-y: auto;
+        max-height: none; /* Kills the internal scrollbar */
+        overflow-y: visible;
     }
 
-    /* 2. Reset the right-column text padding since it's now sitting underneath the left column */
+    /* 3. Fix the text cutoff and spacing */
     .card-right {
-        padding-right: 0;
-        padding-top: 10px;
-    }
-
-    /* 3. Shrink the Hanko Stamp and tuck it neatly into the top right */
-    .hanko-stamp {
-        top: 20px;
-        right: 20px;
-        font-size: 1.6rem;
-        padding: 4px 8px 6px 8px;
-    }
-
-    /* 4. Scale down typography for smaller screens */
-    .kintsugi-card h2 {
-        font-size: 2.2rem;
+        padding-right: 0 !important; /* Forces the text to use the full width */
+        padding-top: 5px;
     }
 
     .skill-list li {
-        font-size: 0.95rem; /* Slightly smaller text for readability */
-        margin-bottom: 15px; /* Tighter spacing */
+        font-size: 0.95rem;
+        padding-right: 5px; /* Prevents text from touching the absolute edge */
     }
 
-    /* 5. Center the left-column content perfectly in the new full-width stack */
+    /* 4. Fix the Hanko Stamp Overlap by centering it */
+    .hanko-stamp {
+        position: relative; /* Takes it out of the corner */
+        top: 0;
+        right: 0;
+        margin: 0 auto 15px auto; /* Centers it perfectly above the season */
+        font-size: 1.8rem;
+    }
+
+    /* 5. Center the left-column content */
     .card-left {
         width: 100%;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Thin gold line separating the sections */
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         padding-bottom: 25px;
         margin-bottom: 10px;
+    }
+
+    .kintsugi-card h2 {
+        font-size: 2.2rem;
     }
 }

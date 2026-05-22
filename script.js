@@ -33,14 +33,36 @@ introTl
     });
 
 //--- 2. TEAM SECTION ANIMATION ---
-gsap.to(".panel-track", {
-    xPercent: -75,
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".horizontal-section",
-        pin: true,
-        scrub: 1,
-        start: "top top",
-        end: "+=3000",
-    },
+// gsap.to(".panel-track", {
+//     xPercent: -75,
+//     ease: "none",
+//     scrollTrigger: {
+//         trigger: ".horizontal-section",
+//         pin: true,
+//         scrub: 1,
+//         start: "top top",
+//         end: "+=3000",
+//     },
+// });
+
+// --- 2. TEAM SECTION ANIMATION (Responsive) ---
+
+// Create a GSAP MatchMedia instance
+let mm = gsap.matchMedia();
+
+// ONLY run the horizontal scroll if the screen is wider than 900px (Desktop/Tablets)
+mm.add("(min-width: 901px)", () => {
+    gsap.to(".panel-track", {
+        xPercent: -75,
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".horizontal-section",
+            pin: true,
+            scrub: 1,
+            start: "top top",
+            end: "+=3000",
+        },
+    });
 });
+
+// (If the screen is 900px or smaller, GSAP simply ignores the code above and lets the user scroll vertically like a normal mobile website!)
