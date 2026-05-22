@@ -135,19 +135,36 @@ h3 {
     position: relative;
 }
 
-/* Subtle, organic gradients mimicking dyed cloth overlaps */
+/* --- THE FOUR SEASONS (Panel Backgrounds) - UPGRADED --- */
+/* Increased opacity to 0.35 and saturated the base colors for distinct pops */
 .panel-boey {
-    background: linear-gradient(135deg, rgba(162, 192, 206, 0.12), transparent);
-} /* Icy Blue */
+    background: linear-gradient(
+        135deg,
+        rgba(135, 206, 235, 0.35),
+        transparent 65%
+    );
+} /* Fuyu - Crisp Frost Blue */
 .panel-charmaine {
-    background: linear-gradient(135deg, rgba(234, 168, 185, 0.15), transparent);
-} /* Sakura Pink */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 183, 197, 0.35),
+        transparent 65%
+    );
+} /* Haru - Bright Sakura Pink */
 .panel-phoebe {
-    background: linear-gradient(135deg, rgba(85, 142, 91, 0.15), transparent);
-} /* Deep Summer Green */
+    background: linear-gradient(
+        135deg,
+        rgba(129, 199, 132, 0.35),
+        transparent 65%
+    );
+} /* Natsu - Vibrant Bamboo Green */
 .panel-adam {
-    background: linear-gradient(135deg, rgba(193, 73, 44, 0.15), transparent);
-} /* Maple Red/Orange */
+    background: linear-gradient(
+        135deg,
+        rgba(229, 115, 115, 0.35),
+        transparent 65%
+    );
+} /* Aki - Rich Maple Red */
 
 /* --- KINTSUGI CARD STYLING --- */
 .kintsugi-card {
