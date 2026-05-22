@@ -439,3 +439,36 @@ h3 {
     opacity: 1;
     color: var(--kintsugi-gold);
 }
+
+/* --- FULL EMAIL LINK STYLING --- */
+.email-link {
+    color: var(--washi-white);
+    opacity: 0.7;
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-size: 0.75rem; /* Scaled down slightly to fit the column nicely */
+    line-height: 1.4;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: block;
+    width: 100%;
+
+    /* THE FIX: Forces the long email to wrap to a new line instead of stretching the column */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    transition:
+        opacity 0.3s ease,
+        color 0.3s ease;
+}
+
+.email-link:hover {
+    opacity: 1;
+    color: var(--kintsugi-gold);
+}
+
+/* Optional adjustment: You may need to slightly reduce the top margin on your LinkedIn link now that the email is sitting above it */
+.linkedin-link {
+    margin-top: 0;
+}
