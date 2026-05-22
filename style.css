@@ -309,3 +309,29 @@ h3 {
     margin-top: 6px;
     font-weight: 600;
 }
+
+/* --- CIRCULAR PROFILE PICTURES --- */
+.profile-pic {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%; /* Forces the perfect circle */
+    object-fit: cover; /* Ensures the image fills the circle without squishing */
+    border: 2px solid var(--kintsugi-gold);
+    margin-bottom: 25px;
+    display: block;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    /* Subtle hover interaction */
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjusting the h2 so it flows nicely below the new image */
+.kintsugi-card h2 {
+    margin-top: 0;
+}
