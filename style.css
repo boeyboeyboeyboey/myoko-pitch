@@ -472,3 +472,53 @@ h3 {
 .linkedin-link {
     margin-top: 0;
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Media Queries)
+   ========================================= */
+
+@media screen and (max-width: 900px) {
+    /* 1. Stack the grid from 2 columns to 1 vertical column */
+    .kintsugi-card {
+        grid-template-columns: 1fr; /* 1 fraction of the space (full width) */
+        width: 95%; /* Takes up more of the narrow mobile screen */
+        padding: 35px 25px; /* Shrinks the huge desktop padding */
+        gap: 20px;
+
+        /* If a phone screen is super short, this allows scrolling INSIDE the card */
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    /* 2. Reset the right-column text padding since it's now sitting underneath the left column */
+    .card-right {
+        padding-right: 0;
+        padding-top: 10px;
+    }
+
+    /* 3. Shrink the Hanko Stamp and tuck it neatly into the top right */
+    .hanko-stamp {
+        top: 20px;
+        right: 20px;
+        font-size: 1.6rem;
+        padding: 4px 8px 6px 8px;
+    }
+
+    /* 4. Scale down typography for smaller screens */
+    .kintsugi-card h2 {
+        font-size: 2.2rem;
+    }
+
+    .skill-list li {
+        font-size: 0.95rem; /* Slightly smaller text for readability */
+        margin-bottom: 15px; /* Tighter spacing */
+    }
+
+    /* 5. Center the left-column content perfectly in the new full-width stack */
+    .card-left {
+        width: 100%;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Thin gold line separating the sections */
+        padding-bottom: 25px;
+        margin-bottom: 10px;
+    }
+}
