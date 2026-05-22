@@ -1,0 +1,188 @@
+:root {
+    --apple-white: #ffffff;
+    --apple-black: #1d1d1f;
+    --myoko-green: #1b4332; /* Deep premium forest green */
+    --accent-green: #40916c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--apple-white);
+    color: var(--apple-black);
+    overflow-x: hidden;
+}
+
+/* --- SECTION 1: HERO & TRANSITION --- */
+.intro-section {
+    height: 300vh; /* Gives space to scroll while elements stay pinned */
+    position: relative;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--apple-white);
+}
+
+.bg-green-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--myoko-green);
+    opacity: 0; /* Animated by JS */
+    z-index: 1;
+}
+
+.text-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 80%;
+}
+
+.tagline {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-white-phase {
+    color: var(--apple-black);
+    opacity: 1;
+}
+
+.text-green-phase {
+    color: var(--apple-white);
+    opacity: 0;
+}
+
+/* --- SECTION 2: HORIZONTAL SCROLL JACK --- */
+.horizontal-section {
+    overflow: hidden;
+    height: 100vh;
+    background-color: #0b1d15; /* Dark base for the team deck */
+}
+
+.panel-track {
+    display: flex;
+    width: 400vw; /* 4 panels * 100vw */
+    height: 100vh;
+}
+
+.panel {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    color: var(--apple-white);
+    position: relative;
+}
+
+/* Individual Panel Background Highlights to visualize the flow */
+.panel-boey {
+    background: radial-gradient(circle at top right, #122c20, #0a1410);
+}
+.panel-charmaine {
+    background: radial-gradient(circle at top right, #1b3a2b, #0c1812);
+}
+.panel-phoebe {
+    background: radial-gradient(circle at top right, #224c36, #0e1d15);
+}
+.panel-adam {
+    background: radial-gradient(circle at top right, #2d6a4f, #12251c);
+}
+
+.panel-content {
+    width: 80%;
+    max-width: 1000px;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: var(--accent-green);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+}
+
+.panel h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.placeholder-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    opacity: 0.7;
+}
+
+.visual-placeholder {
+    margin-top: 40px;
+    height: 250px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- SECTION 3: PITCH / CONCLUSION --- */
+.pitch-section {
+    min-height: 100vh;
+    background-color: var(--apple-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+}
+
+.pitch-container {
+    text-align: center;
+    max-width: 800px;
+}
+
+.pitch-container h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 30px;
+}
+
+.pitch-sub {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #6e6e73;
+}
