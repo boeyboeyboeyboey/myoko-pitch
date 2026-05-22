@@ -1,8 +1,8 @@
 :root {
-    --apple-white: #ffffff;
-    --apple-black: #1d1d1f;
-    --myoko-green: #1b4332; /* Deep premium forest green */
-    --accent-green: #40916c;
+    --washi-white: #f4f1ea; /* Unbleached cotton/paper */
+    --sumi-black: #2c2b29; /* Traditional ink */
+    --matcha-green: #3b4d31; /* Deep, natural leaf green */
+    --furoshiki-accent: #6c7a58;
 }
 
 * {
@@ -12,15 +12,51 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    background-color: var(--apple-white);
-    color: var(--apple-black);
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    background-color: var(--washi-white);
+    color: var(--sumi-black);
     overflow-x: hidden;
+}
+
+/* --- THE FABRIC TEXTURE --- */
+.fabric-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.25;
+    /* Creates a subtle cross-stitch/weave pattern */
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.02) 2px,
+            rgba(0, 0, 0, 0.02) 4px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.02) 2px,
+            rgba(0, 0, 0, 0.02) 4px
+        );
+}
+
+/* --- TYPOGRAPHY UPDATES --- */
+h1,
+h2,
+h3 {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 600;
 }
 
 /* --- SECTION 1: HERO & TRANSITION --- */
 .intro-section {
-    height: 300vh; /* Gives space to scroll while elements stay pinned */
+    height: 300vh;
     position: relative;
 }
 
@@ -33,7 +69,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: var(--apple-white);
+    background-color: var(--washi-white);
 }
 
 .bg-green-overlay {
@@ -42,8 +78,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--myoko-green);
-    opacity: 0; /* Animated by JS */
+    background-color: var(--matcha-green);
+    /* We start the cloth hidden in the bottom right corner */
+    clip-path: circle(0% at 100% 100%);
     z-index: 1;
 }
 
@@ -55,9 +92,7 @@ body {
 }
 
 .tagline {
-    font-size: 4rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-size: 4.5rem;
     position: absolute;
     width: 100%;
     left: 50%;
@@ -66,12 +101,11 @@ body {
 }
 
 .text-white-phase {
-    color: var(--apple-black);
-    opacity: 1;
+    color: var(--sumi-black);
 }
 
 .text-green-phase {
-    color: var(--apple-white);
+    color: var(--washi-white);
     opacity: 0;
 }
 
@@ -79,12 +113,12 @@ body {
 .horizontal-section {
     overflow: hidden;
     height: 100vh;
-    background-color: #0b1d15; /* Dark base for the team deck */
+    background-color: var(--matcha-green);
 }
 
 .panel-track {
     display: flex;
-    width: 400vw; /* 4 panels * 100vw */
+    width: 400vw;
     height: 100vh;
 }
 
@@ -96,73 +130,61 @@ body {
     align-items: center;
     justify-content: center;
     padding: 5%;
-    color: var(--apple-white);
+    color: var(--washi-white);
     position: relative;
 }
 
-/* Individual Panel Background Highlights to visualize the flow */
+/* Subtle, organic gradients mimicking dyed cloth overlaps */
 .panel-boey {
-    background: radial-gradient(circle at top right, #122c20, #0a1410);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
 }
 .panel-charmaine {
-    background: radial-gradient(circle at top right, #1b3a2b, #0c1812);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), transparent);
 }
 .panel-phoebe {
-    background: radial-gradient(circle at top right, #224c36, #0e1d15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent);
 }
 .panel-adam {
-    background: radial-gradient(circle at top right, #2d6a4f, #12251c);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.15), transparent);
 }
 
 .panel-content {
     width: 80%;
     max-width: 1000px;
+    /* Adding a subtle card effect like a folded tag */
+    background: rgba(244, 241, 234, 0.03);
+    border: 1px solid rgba(244, 241, 234, 0.15);
+    padding: 40px;
+    border-radius: 4px;
 }
 
 .role-badge {
     display: inline-block;
     padding: 6px 14px;
-    background-color: var(--accent-green);
-    border-radius: 20px;
+    border: 1px solid var(--washi-white);
     font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     margin-bottom: 20px;
 }
 
 .panel h2 {
     font-size: 3.5rem;
-    font-weight: 800;
     margin-bottom: 15px;
-    letter-spacing: -0.02em;
+    font-weight: 400;
 }
 
 .placeholder-text {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.8;
     max-width: 600px;
-    opacity: 0.7;
-}
-
-.visual-placeholder {
-    margin-top: 40px;
-    height: 250px;
-    border: 1px dashed rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.4);
+    opacity: 0.85;
 }
 
 /* --- SECTION 3: PITCH / CONCLUSION --- */
 .pitch-section {
     min-height: 100vh;
-    background-color: var(--apple-white);
+    background-color: var(--washi-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,14 +197,13 @@ body {
 }
 
 .pitch-container h2 {
-    font-size: 4rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-size: 3.5rem;
+    color: var(--sumi-black);
     margin-bottom: 30px;
 }
 
 .pitch-sub {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    color: #6e6e73;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #555;
 }
